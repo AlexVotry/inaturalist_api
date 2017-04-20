@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const app = require('../app');
-const http = require('http');
-const port = process.env.PORT || '3000';
+var app = require('../app/app');
+var http = require('http');
+var port = process.env.PORT || '8080';
 
-const dotenv = require('dotenv');
-const path = require('path');
+var dotenv = require('dotenv');
+var path = require('path');
 
-let env_file = path.join(__dirname, '../.env');
+var env_file = path.join(__dirname, '../.env');
 dotenv.config({ path: env_file });
 
 var server = http.createServer(app);
