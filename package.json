@@ -1,0 +1,23 @@
+{
+  "name": "inaturalist",
+  "version": "1.0.0",
+  "description": "api app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexVotry/inaturalist_api.git"
+  },
+  "author": "alex votry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexVotry/inaturalist_api/issues"
+  },
+  "homepage": "https://github.com/AlexVotry/inaturalist_api#readme",
+  "dependencies": {
+    "basic-auth": "^1.1.0",
+    "dotenv": "^4.0.0"
+  }
+}

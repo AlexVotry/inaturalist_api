@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html ng-app="moby">
+    <head>
+      <meta charset="utf=8">
+      <title>OhNatural</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <nav id="navBar" class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Naturalist Memory Game</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#/animals">Animals</a></li>
+            <li><a href="#/birds">Birds</a></li>
+          </ul>
+          <!-- <ul class="nav navbar-nav navbar-right" ng-controller='ModalController as modal'>
+            <li><a href="#/signup" ng-click="modal.open('signup','lg')"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/#/login" ng-click="modal.open('login','lg')"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul> -->
+        </div>
+      </nav>
+
+      <div ui-view></div>
+
+
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"> </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+      <script src="app.js"></script>
+      <script src="./animals/animals.module.js"></script>
+      <script src="./animals/animals.service.js"></script>
+      <script src="./animals/animals.route.js"></script>
+      <script src="./animals/animals.controller.js"></script>
+      <!-- <script src="./birds/birds.module.js"></script>
+      <script src="./birds/birds.service.js"></script>
+      <script src="./birds/birds.route.js"></script>
+      <script src="./birds/birds.controller.js"></script>
+      <script src="./fish/fish.module.js"></script>
+      <script src="./fish/fish.service.js"></script>
+      <script src="./fish/fish.route.js"></script>
+      <script src="./fish/fish.controller.js"></script>
+      <script src="./mammals/mammals.module.js"></script>
+      <script src="./mammals/mammals.service.js"></script>
+      <script src="./mammals/mammals.route.js"></script>
+      <script src="./mammals/mammals.controller.js"></script>
+      <script src="./reptiles/reptiles.module.js"></script>
+      <script src="./reptiles/reptiles.service.js"></script>
+      <script src="./reptiles/reptiles.route.js"></script>
+      <script src="./reptiles/reptiles.controller.js"></script> -->
+    </body>
+  </html>

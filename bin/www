@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const app = require('../app');
+const http = require('http');
+const port = process.env.PORT || '3000';
+
+const dotenv = require('dotenv');
+const path = require('path');
+
+let env_file = path.join(__dirname, '../.env');
+dotenv.config({ path: env_file });
+
+var server = http.createServer(app);
+
+server.listen(port, function() {
+  console.log(`Listening on port ${ port }... [Press Ctrl-c to exit]`);
+});

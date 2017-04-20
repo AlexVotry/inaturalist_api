@@ -1,0 +1,36 @@
+#container {
+  background-color: #BDB76B; /* dark khaki */
+  height: 800px;
+  margin: 10%;
+  margin-top: 0;
+}
+.well {
+  margin-top: 2%;
+  box-shadow: 2px 2px 8px #b22222;
+  border-radius: 5px;
+  background-color: 	#F0FFF0;
+}
+.progress {
+  margin-top: 2%;
+  box-shadow: 2px 2px 8px #b22222;
+}
+.progress-bar {
+  box-shadow: 2px 2px 8px #b22222;
+}
+.pic {
+  display: inline flex;
+  height: 80%;
+  width: 80%;
+  margin: 5% 10%;
+}
+.board {
+  margin-top: 2%;
+  float: right;
+}
+.squares {
+  background-color: 	#B22222; /* dark green */
+  height: 150px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
