@@ -30,7 +30,7 @@
       });
     }
     function getInfo() {
-      return $http.get(`${url}?`)
+      return $http.get(`/observations`)
         .then( info => {
           console.log(info.data);
           return info.data;

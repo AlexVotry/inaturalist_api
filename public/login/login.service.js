@@ -9,6 +9,8 @@
         return {
             login: login
         };
+        var url = 'http://www.inaturalist.org/';
+        var endpoint = 'oauth/token';
 
         function login(credentials) {
             var payload = {
@@ -20,9 +22,10 @@
             };
             var request = {
                 method: 'POST',
-                url: 'http://www.inaturalist.org/oauth/token',
+                url: '/login',
+                // url: url + endpoint,
                 // Access-Control-Allow-Origin: 'https://localhost:8080'},
-                header: { 'Access-Control-Allow-Origin': 'http://localhost:8080'},
+                // header: { 'Access-Control-Allow-Origin': 'http://localhost:8080'},
                 // headers: { 'Access-Control-Allow-Origin': '*'},
                 data: payload
             };
