@@ -21,6 +21,7 @@
     var count = 0;
     var first = {};
     var second = {};
+    var url = 'https://www.inaturalist.org/observations.json';
 
     function getPics() {
       return $http.get('../pictures.json')
@@ -28,15 +29,29 @@
           return pictures.data;
       });
     }
+    function getInfo() {
+      return $http.get(`${url}?`)
+        .then( info => {
+          console.log(info.data);
+          return info.data;
+      });
+    }
 
     function getImages() {
-      getPics().then(pictures => {
+      getInfo().then(pictures => {
         var double = 2;
         while (double > 0) {
-          for (var i = 0; i < 8; i++) {
-            slides.push(pictures[i]);
-          }
-          double --;
+          var count = 0;
+          for (var i = 0; i < pictures.length; i++) {
+              if (pictures[i].photos[0]) {
+                count++;
+                slides.push({ picture: pictures[i].photos[0].square_url, id: pictures[i].photos[0].id });
+              }
+              if (count > 7) {
+                break;
+              }
+            }
+            double --;
         };
         shuffle(slides);
       });
@@ -93,7 +108,8 @@
       makeBoard: makeBoard,
       firstPick: firstPick,
       secondPick: secondPick,
-      compare: compare
+      compare: compare,
+      getInfo: getInfo
     };
   }
 

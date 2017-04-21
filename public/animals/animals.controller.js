@@ -15,13 +15,16 @@
     var second;
     var setup;
     var findex;
-
-
     var didIt = 'http://www.onefortraining.org/sites/default/files/YouDidIt.png';
 
-    AnimalService.getImages().then( slides => {
-      vm.animalPics = slides;
-    });
+    AnimalService.getImages().then(info => {
+      vm.animalPics = info;
+      // console.log('contr Info: ', info);
+    })
+
+    // AnimalService.getImages().then( slides => {
+    //   vm.animalPics = slides;
+    // });
     vm.images = AnimalService.makeBoard();
 
     vm.choose = function(pic, index) {
@@ -42,6 +45,7 @@
       if (count > 1) {
         setup = AnimalService.compare()
         function revert() {
+          // console.log('fid: ', first.id, 'sid: ', second.id );
           vm.images[findex] = setup;
           vm.images[second.index] = setup;
         }

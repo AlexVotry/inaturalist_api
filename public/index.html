@@ -1,7 +1,9 @@
 <!DOCTYPE html>
   <html ng-app="moby">
     <head>
+      <base href="/">
       <meta charset="utf=8">
+      <meta name="inaturalist-api-token" content="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjo0NTY5NjUsImV4cCI6MTQ5MjgyMDUzNH0.91Cag4xH6xnUnkooz0hqaUUgJZDbYeXV0_O-CcQ3vT3nlFpHM5HhnP8TwjMl9kShzbN8rCedX4NAT3oZ3q-gxg">
       <title>OhNatural</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
       <link rel="stylesheet" href="style.css">
@@ -10,16 +12,16 @@
       <nav id="navBar" class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Naturalist Memory Game</a>
+            <a class="navbar-brand" href="/">Naturalist Memory Game</a>
           </div>
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#/animals">Animals</a></li>
-            <li><a href="#/birds">Birds</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/animals">Animals</a></li>
+            <li><a href="/birds">Birds</a></li>
           </ul>
            <ul class="nav navbar-nav navbar-right">
             <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul> -->
         </div>
       </nav>
@@ -41,6 +43,14 @@
       <script src="./login/login.service.js"></script>
       <script src="./login/login.route.js"></script>
       <script src="./login/login.controller.js"></script>
+      <script src="./welcome/welcome.module.js"></script>
+      <script src="./welcome/welcome.service.js"></script>
+      <script src="./welcome/welcome.route.js"></script>
+      <script src="./welcome/welcome.controller.js"></script>
+      <script src="./auth/auth.module.js"></script>
+      <script src="./auth/auth-interceptor.service.js"></script>
+      <script src="./auth/auth-token.service.js"></script>
+      <script src="./auth/session.service.js"></script>
       <!-- <script src="./birds/birds.module.js"></script>
       <script src="./birds/birds.service.js"></script>
       <script src="./birds/birds.route.js"></script>

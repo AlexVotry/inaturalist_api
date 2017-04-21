@@ -15,12 +15,6 @@
         <button type="button" class="btn btn-success btn-lg" onclick="reset()">
           <span class="glyphicon glyphicon-refresh"></span> reset</button>
       </aside>
-      <!-- board and squares -->
-        <!-- <div class='row col-sm-10 board' >
-          <div class='col-sm-3 squares' ng-repeat="pic in animals.images track by $index">
-            <img class="pic" ng-src='{{ pic.image }}' alt='image' ng-click="animals.choose(pic, $index)"> </img>
-          </div>
-        </div> -->
         <div class='row col-sm-10 board' >
           <div class='col-sm-3 squares' ng-repeat="pic in animals.images track by $index">
             <img class="pic" ng-src='{{ pic.picture }}' alt='image' ng-click="animals.choose(pic, $index)"> </img>
@@ -28,3 +22,6 @@
         </div>
       </div> <!-- end container -->
     </div> <!-- end game -->
+  <!-- <div ng-repeat="info in animals.info">
+    <img class = 'test' ng-src='{{ info.photos[0].large_url }}' alt='info pics'></img>
+  </div> -->

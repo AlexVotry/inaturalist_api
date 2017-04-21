@@ -9,7 +9,7 @@
       $stateProvider
       .state('login', {
         url: '/login',
-        templateUrl: 'login/login.index.html',
+        templateUrl: 'login/index.html',
         controller: 'LoginController',
         controllerAs: 'login'
       });

@@ -5,7 +5,8 @@
     .module('animals')
     .config(config);
 
-    function config($stateProvider) {
+    function config($stateProvider, $locationProvider) {
+      // $locationProvider.html5Mode(true);
       $stateProvider
       .state('animals', {
         url: '/animals',
