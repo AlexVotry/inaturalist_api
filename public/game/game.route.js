@@ -2,17 +2,17 @@
   'use strict';
 
   angular
-    .module('animals')
+    .module('game')
     .config(config);
 
     function config($stateProvider, $locationProvider) {
       // $locationProvider.html5Mode(true);
       $stateProvider
-      .state('animals', {
-        url: '/animals',
-        templateUrl: 'animals/index.html',
-        controller: 'AnimalController',
-        controllerAs: 'animals'
+      .state('game', {
+        url: '/game',
+        templateUrl: 'game/index.html',
+        controller: 'GameController',
+        controllerAs: 'game'
       });
 
     }

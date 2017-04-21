@@ -1,8 +1,22 @@
-var express = require('express');
-var path = require('path');
-var auth = require('basic-auth');
-var dotenv = require('dotenv');
-var app = express();
+const express = require('express');
+const path = require('path');
+const auth = require('basic-auth');
+const dotenv = require('dotenv');
+const app = express();
+const login = require('./login');
+
+const site = 'http://www.inaturalist.org';
+const app_id = process.env.app_id;
+const app_secret = process.env.app_secret;
+const redirect_uri = process.env.HOST;
+
+const payload = {
+  client_id: app_id,
+  client_secret: app_secret,
+  code: process.env.auth_code,
+  redirect_uri: redirect_uri,
+  grant_type: "authorization_code"
+};
 
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -16,10 +30,4 @@ app.get('/', function(req, res, next) {
   res.sendFile('index.html');
 });
 
-
-
-
-// url = `${site}/oauth/authorize?client_id=${app_id}&redirect_uri=${redirect_uri}&response_type=code`;
-
-// app.use('/observations', observations);
 module.exports = app;

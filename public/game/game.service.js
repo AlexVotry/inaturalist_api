@@ -2,10 +2,10 @@
   'use strict';
 
   angular
-  .module('animals')
-  .factory('AnimalService', AnimalService);
+  .module('game')
+  .factory('GameService', GameService);
 
-  function AnimalService($http, $q, $timeout) {
+  function GameService($http, $q, $timeout) {
     var question = {
       "picture": "http://gogaytours.com/wp-content/uploads/2013/04/questionmark.png",
       "name": "question",
@@ -21,8 +21,10 @@
     var count = 0;
     var first = {};
     var second = {};
-    var url = 'https://www.inaturalist.org/observations.json';
-
+    var code = '8d12e9fae20eefa5585b941c8e7c59e9b59b884d7be3dd2c9cdbb3a0eed87d76';
+    var client_id = '456965';
+    var url = `https://www.inaturalist.org/observations.json`;
+    5895044
     function getPics() {
       return $http.get('../pictures.json')
         .then( pictures => {
@@ -30,9 +32,9 @@
       });
     }
     function getInfo() {
-      return $http.get(`${url}?`)
+      return $http.get(`${url}`)
         .then( info => {
-          console.log(info.data);
+          // console.log(info.data);
           return info.data;
       });
     }
@@ -45,7 +47,12 @@
           for (var i = 0; i < pictures.length; i++) {
               if (pictures[i].photos[0]) {
                 count++;
-                slides.push({ picture: pictures[i].photos[0].square_url, id: pictures[i].photos[0].id });
+                slides.push({
+                  picture: pictures[i].photos[0].square_url,
+                  id: pictures[i].photos[0].id,
+                  location: pictures[i].place_guess,
+                  uri: pictures[i].uri
+                });
               }
               if (count > 7) {
                 break;

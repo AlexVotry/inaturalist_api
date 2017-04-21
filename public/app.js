@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('moby',
-    [ 'animals'
+    [ 'game'
     , 'auth'
     , 'login'
     , 'welcome'

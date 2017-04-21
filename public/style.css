@@ -37,3 +37,10 @@
 .test {
   height: 100px;
 }
+.loc {
+  color: red;
+  white-space: pre-wrap;
+}
+.success {
+  color: green;
+}
