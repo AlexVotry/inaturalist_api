@@ -14,8 +14,9 @@
       <h3>More Info:</h3><a ng-href="{{ game.infoPage }}" ng-attr-target="{{ game.blank }}"><h4>inaturalist</h4></a>
       <br/>
     </div>
+    <h4 ng-show="game.species">Wiki info: </h4>
     <h3><a ng-href="https://en.wikipedia.org/wiki/{{ game.species }}" ng-attr-target="{{ game.blank }}">{{ game.species }}</a></h3>
-    <button type="button" class="btn btn-success btn-lg" ng-click="game.reset()">
+    <button type="button" class="btn btn-success btn-lg reset" ng-click="game.reset()">
       <span class="glyphicon glyphicon-refresh"></span> reset</button>
   </aside>
 <!-- gameboard -->
@@ -24,4 +25,5 @@
       <img class="pic" ng-src='{{ pic.picture }}' alt='image' ng-click="game.choose(pic, $index)"> </img>
     </div>
   </div> <!-- end board -->
+
 </div> <!-- end container -->

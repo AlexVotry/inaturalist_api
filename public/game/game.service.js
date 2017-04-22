@@ -7,7 +7,7 @@
 
   function GameService($http, $q, $timeout) {
     var question = {
-      "picture": "http://gogaytours.com/wp-content/uploads/2013/04/questionmark.png",
+      "picture": "https://static.inaturalist.org/wiki_page_attachments/154-original.png",
       "name": "question",
       "id": 10
     };
