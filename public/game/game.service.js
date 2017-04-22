@@ -11,7 +11,6 @@
       "name": "question",
       "id": 10
     };
-
     var gotIt = {
       "picture": "http://cdn.phys.org/newman/csz/news/800/2015/thehumorousp.jpg",
       "name": "einstein",
@@ -23,42 +22,78 @@
     var second = {};
     var code = '8d12e9fae20eefa5585b941c8e7c59e9b59b884d7be3dd2c9cdbb3a0eed87d76';
     var client_id = '456965';
-    var url = `https://www.inaturalist.org/observations.json`;
-    5895044
-    function getPics() {
-      return $http.get('../pictures.json')
-        .then( pictures => {
-          return pictures.data;
-      });
+    var url = 'https://api.inaturalist.org/v1/observations';
+    // https://api.inaturalist.org/v1/taxa/autocomplete?q=mammalia
+    var taxaGroups = ['Reptilia', 'mammalia', 'Aves', 'Actinopterygii', 'Amphibia', 'Arachnida'];
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjo0NTY5NjUsImV4cCI6MTQ5MjkxMzIwNH0.Op6pC4XyKgk8hbVbA72u_vgal-8v-xLmV7I8Jgx95lXEAtRylRukuq3zbvh8yeQ_IpKK1R3Hce16lGP86hUwJQ";
+    var species;
+
+    // function getToken() {
+    //   var request = {
+    //     method: 'GET',
+    //     url: 'https://www.inaturalist.org/users/api_token',
+    //   }
+    //
+    //   return $http(request)
+    //     .then(token => {
+    //       return token.api_token
+    //     });
+    // }
+    function convert(taxa) {
+      switch (taxa) {
+        case 'Reptiles':
+          species = taxaGroups[0];
+          break;
+        case 'Mammals':
+          species = taxaGroups[1];
+          break;
+        case 'Birds':
+          species = taxaGroups[2];
+          break;
+        case 'Fish':
+          species = taxaGroups[3];
+          break;
+        case 'Amphibians':
+          species = taxaGroups[4];
+          break;
+        case 'Spiders':
+          species = taxaGroups[5];
+          break;
+        default:
+          species = taxaGroups[1];
+      }
+      return species;
     }
+
     function getInfo() {
-      return $http.get(`${url}`)
+      console.log('info species: ', species);
+      var request = {
+        method: 'GET',
+        url: url,
+        // headers: {authorization: `Bearer ${token}`},
+        params: {photos: true, per_page: 8, identified: true, iconic_taxa: species }
+      }
+      return $http(request)
         .then( info => {
-          // console.log(info.data);
+          // console.log(info.data.results);
           return info.data;
       });
     }
 
-    function getImages() {
-      getInfo().then(pictures => {
+    function getImages(taxa) {
+      getInfo(taxa).then(response => {
         var double = 2;
         while (double > 0) {
-          var count = 0;
-          for (var i = 0; i < pictures.length; i++) {
-              if (pictures[i].photos[0]) {
-                count++;
-                slides.push({
-                  picture: pictures[i].photos[0].square_url,
-                  id: pictures[i].photos[0].id,
-                  location: pictures[i].place_guess,
-                  uri: pictures[i].uri
-                });
-              }
-              if (count > 7) {
-                break;
-              }
-            }
-            double --;
+          for (var i = 0; i < response.results.length; i++) {
+            slides.push({
+              picture: response.results[i].photos[0].url,
+              id: response.results[i].photos[0].id,
+              location: response.results[i].place_guess,
+              uri: response.results[i].uri,
+              species: response.results[i].species_guess
+            });
+          }
+          double --;
         };
         shuffle(slides);
       });
@@ -111,12 +146,12 @@
     };
 
     return {
+      convert: convert,
       getImages: getImages,
       makeBoard: makeBoard,
       firstPick: firstPick,
       secondPick: secondPick,
-      compare: compare,
-      getInfo: getInfo
+      compare: compare
     };
   }
 

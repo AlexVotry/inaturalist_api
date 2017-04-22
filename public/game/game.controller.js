@@ -19,10 +19,16 @@
     var didIt = 'http://www.onefortraining.org/sites/default/files/YouDidIt.png';
     var indx;
     var loc;
+    vm.animalGroups = ['Reptiles', 'Mammals', 'Birds', 'Fish', 'Amphibians', 'Spiders'];
 
-    GameService.getImages().then(info => {
-      vm.animalPics = info;
-    })
+    vm.chooseSpecies = function(species) {
+      vm.taxa = species;
+      GameService.convert(species);
+      GameService.getImages().then(info => {
+        vm.animalPics = info;
+      })
+    };
+
     vm.images = GameService.makeBoard();
     vm.reset = function() {
       document.location.href = "#/game";
@@ -36,6 +42,7 @@
             vm.images[index] = first;
             findex = first.index;
             vm.infoPage = first.uri;
+            vm.species = first.species;
             loc = first.location;
             if(loc) {
               vm.loc = loc.split(',').join("\n");
@@ -47,6 +54,7 @@
           if(pic.id === 10) {
             vm.images[index] = second;
             vm.infoPage = second.uri;
+            vm.species = second.species;
             loc = second.location;
             if(loc) {
               vm.loc = loc.split(',').join("\n");
@@ -65,7 +73,7 @@
           vm.images[findex] = setup;
           vm.images[second.index] = setup;
         }
-        $timeout(revert, 1000);
+        $timeout(revert, 1500);
         count = 0;
         if (vm.gotRight === 7) {
           for (indx in vm.images) {

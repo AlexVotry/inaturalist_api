@@ -17,8 +17,25 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/game">Game</a></li>
-            <li><a href="/birds">Birds</a></li>
+            <li class="dropdown" ng-controller="GameController as game">
+              <span class="caret"></span>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Species: {{ game.taxa }}
+              </a>
+              <ul class="dropdown-menu dropIt" >
+                <li ng-repeat="species in game.animalGroups">
+                  <a href="#" ng-click="game.chooseSpecies(this.species)"> {{ species }}</a>
+                </li>
+              </ul>
+            </li>
           </ul>
+
+                <!-- <li><a href="#" ng-click="game.chooseSpecies('Reptilia')">Reptiles</a></li>
+                <li><a href="#" ng-click="game.chooseSpecies('Mammalia')">Mammals</a></li>
+                <li><a href="#" ng-click="game.chooseSpecies('Aves')">Birds</a></li>
+                <li><a href="#" ng-click="game.chooseSpecies('Actinopterygii')">Fish</a></li>
+                <li><a href="#" ng-click="game.chooseSpecies('Amphibia')">Amphibians</a></li>
+                <li><a href="#" ng-click="game.chooseSpecies('Arachnida')">Spiders</a></li> -->
+
            <ul class="nav navbar-nav navbar-right">
             <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
