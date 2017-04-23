@@ -1,0 +1,13 @@
+<h1>Login</h1>
+
+<form ng-submit="signup.register()">
+    <input type="text" autofocus="true" placeholder="name" ng-model="signup.credentials.username">
+    <div id="signup-error">{{ signup.error }}</div>
+    <input type="text" placeholder="password" ng-model="signup.credentials.password">
+    <button type="submit" class="btn btn-primary">Signup</button>
+    <button type="reset" class="btn btn-warning">Reset</button>
+</form>
+<button type-"button" ng-click="signup.getList()">get list</button>
+<div class='loc' ng-repeat="word in signup.list">
+  <span><h3> {{ word.username }}  </h3><h4> : {{ word.password }} </h4><span>
+</div>

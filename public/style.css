@@ -1,8 +1,8 @@
 #container {
-  background-color: #828081; /* dark khaki */
-  height: 800px;
-  margin: 10%;
-  margin-top: 0;
+  background-color: #828081; /* steel */
+  height: 100%;
+  margin-left: 1%;
+  margin-top: 2%;
   border-radius: 5px;
 }
 #navBar {
@@ -14,8 +14,11 @@ a {
 body {
   background-color: #1e392a;
 }
+/*aside {
+  margin: 2%;
+}*/
 .well {
-  margin-top: 2%;
+  margin: 2%;
   box-shadow: 2px 2px 8px #3cc47c;
   border-radius: 5px;
   background-color: 	#e9c893;
@@ -28,6 +31,7 @@ body {
 }
 .board {
   margin-top: 2%;
+  margin-bottom: 2%;
   float: right;
 }
 .squares {
@@ -49,4 +53,17 @@ body {
 }
 .reset {
   background-color: #bd1e05;
+}
+.dropIt {
+  margin-top: 2%;
+  list-style: none;
+  color: #1e392a;
+}
+.speciesButton {
+  background-color: #3cc47c;
+}
+.dropdownBox {
+  background-color: #3cc47c;
+  color: #000;
+  font-size: 2em;
 }

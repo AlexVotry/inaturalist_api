@@ -1,5 +1,5 @@
 (function() {
-    
-    angular.module('login', []);
-    
+
+    angular.module('login', ['ui.router']);
+
 })();

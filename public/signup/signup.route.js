@@ -2,18 +2,18 @@
   'use strict';
 
   angular
-    .module('login')
+    .module('signup')
     .config(config);
 
     function config($stateProvider, $httpProvider) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
       $stateProvider
-      .state('login', {
-        url: '/login',
-        templateUrl: 'login/index.html',
-        controller: 'LoginController',
-        controllerAs: 'login'
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'signup/index.html',
+        controller: 'SignupController',
+        controllerAs: 'signup'
       });
 
     }

@@ -5,10 +5,7 @@
     [ 'game'
     , 'auth'
     , 'login'
+    , 'signup'
     , 'welcome'
-    // , 'birds'
-    // , 'fish'
-    // , 'mammals'
-    // , 'reptiles'
     ]);
 }());

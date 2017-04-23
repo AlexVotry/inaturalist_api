@@ -16,19 +16,10 @@
           </div>
           <ul class="nav navbar-nav">
             <li><a href="/game">Game</a></li>
-            <li class="dropdown" ng-controller="GameController as game">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Species: {{ game.taxa }}
-              </a>
-              <ul class="dropdown-menu dropIt" >
-                <li ng-repeat="species in game.animalGroups">
-                  <a href="#" ng-click="game.chooseSpecies(this.species)"> {{ species }}</a>
-                </li>
-              </ul>
-            </li>
           </ul>
 
            <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
@@ -51,6 +42,10 @@
       <script src="./login/login.service.js"></script>
       <script src="./login/login.route.js"></script>
       <script src="./login/login.controller.js"></script>
+      <script src="./signup/signup.module.js"></script>
+      <script src="./signup/signup.service.js"></script>
+      <script src="./signup/signup.route.js"></script>
+      <script src="./signup/signup.controller.js"></script>
       <script src="./welcome/welcome.module.js"></script>
       <script src="./welcome/welcome.service.js"></script>
       <script src="./welcome/welcome.route.js"></script>
@@ -59,21 +54,5 @@
       <script src="./auth/auth-interceptor.service.js"></script>
       <script src="./auth/auth-token.service.js"></script>
       <script src="./auth/session.service.js"></script>
-      <!-- <script src="./birds/birds.module.js"></script>
-      <script src="./birds/birds.service.js"></script>
-      <script src="./birds/birds.route.js"></script>
-      <script src="./birds/birds.controller.js"></script>
-      <script src="./fish/fish.module.js"></script>
-      <script src="./fish/fish.service.js"></script>
-      <script src="./fish/fish.route.js"></script>
-      <script src="./fish/fish.controller.js"></script>
-      <script src="./mammals/mammals.module.js"></script>
-      <script src="./mammals/mammals.service.js"></script>
-      <script src="./mammals/mammals.route.js"></script>
-      <script src="./mammals/mammals.controller.js"></script>
-      <script src="./reptiles/reptiles.module.js"></script>
-      <script src="./reptiles/reptiles.service.js"></script>
-      <script src="./reptiles/reptiles.route.js"></script>
-      <script src="./reptiles/reptiles.controller.js"></script> -->
     </body>
   </html>
