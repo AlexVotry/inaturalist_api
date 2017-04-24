@@ -1,7 +1,7 @@
 const express = require('express');
-const auth = require('./auth/authenticate');
+const auth = require('../auth/authenticate');
 const login = express.Router();
-const model = require('../db/model');
+const model = require('../../db/model');
 
 login.post('/', (request, response) => {
   let credentials = request.body.credentials;
@@ -12,8 +12,6 @@ login.post('/', (request, response) => {
       .json({ token: token });
   });
 });
-
-
 
 module.exports = login;
 // // login.post('/', function(request, response) {

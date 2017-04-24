@@ -41,37 +41,34 @@ function register(credentials) {
     if (!credentials.username) reject('username cannot be empty');
     if (!credentials.password) reject('password missing');
 
-    return model.findGamer({ username: credentials.username })
-      .then(function(users) {
-        console.log('finduser: ', users);
-        if (users.length > 0) {
-          reject('duplicate user');
-        } else {
+    // return model.findGamer({ username: credentials.username })
+    //   .then(function(users) {
+    //     if (users.length > 0) {
+    //       console.log('finduser: ', users);
+    //     } else {
           return model.createGamer(credentials)
-            .then(function() {
+            .then(function(cred) {
               console.log('createUser: ', credentials);
-              resolve(jwt.sign(credentials, _SECRET ));
-            });
-        }
-      });
+              resolve(jwt.sign(cred, _SECRET ));
+            }).throw ('duplicate user');
+            // reject('duplicate user');
+        // }
+      // });
   });
 }
 
 function verify(credentials) {
-
   return new Promise(function(resolve, reject) {
 
     if (!credentials.username) reject('username cannot be empty');
     if (!credentials.password) reject('password missing');
 
-    const user = new User();
-
-    return user.findgamer({ username: credentials.username })
-      .then(function(users) {
-        if (users.length == 0) reject('username does not exist');
-
-        if (users[0].password == credentials.password ) {
-          resolve(jwt.sign(credentials, _SECRET ));
+    return model.findGamer(credentials)
+      .then(function(user) {
+        console.log('verify users: ', user);
+        if (user.length == 0) reject('username does not exist');
+        if (user.password == credentials.password ) {
+          resolve(jwt.sign(user, _SECRET ));
         } else {
           reject('user name or password is incorrect');
         }

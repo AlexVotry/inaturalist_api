@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
       table.string('accessToken');
     }),
     knex.schema.createTable('favorites', table => {
-      table.string('fID').primary();
+      table.increments();
       table.string('username').references('username').inTable('gamers').onDelete('cascade');
       table.string('photo_id');
       table.string('picture').defaultTo('unspecified');

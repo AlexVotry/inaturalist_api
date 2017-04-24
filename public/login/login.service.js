@@ -36,10 +36,9 @@
             //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             //     data: payload
             // };
-          console.log('header: ', request);
           return $http(request).then(function(response) {
             var token = response.data.token;
-              // var token = JSON.parse(response)["access_token"];
+            console.log('log service token: ', token);
               AuthToken.save(token);
               return true;
           });

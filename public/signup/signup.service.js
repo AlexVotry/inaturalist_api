@@ -28,12 +28,10 @@
           .then(function(response) {
             var token = response.data.token;
             AuthToken.save(token);
-
             return true;
-          })
-          // , function(response) {
-          //   return $q.reject(response.data.error);
-          // });
+          }, function(response) {
+            return $q.reject(response.data.error);
+          });
       }
       function getList() {
         var request = {

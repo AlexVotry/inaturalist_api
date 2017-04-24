@@ -2,8 +2,10 @@
   'use strict';
 
   angular.module('moby',
-    [ 'game'
-    , 'auth'
+    [ 'auth'
+    , 'game'
+    , 'favorites'
+    , 'list'
     , 'login'
     , 'signup'
     , 'welcome'

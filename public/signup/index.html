@@ -2,7 +2,7 @@
 
 <form ng-submit="signup.register()">
     <input type="text" autofocus="true" placeholder="name" ng-model="signup.credentials.username">
-    <div id="signup-error">{{ signup.error }}</div>
+    <div id="signup-error" class='loc'>{{ signup.error }}</div>
     <input type="text" placeholder="password" ng-model="signup.credentials.password">
     <button type="submit" class="btn btn-primary">Signup</button>
     <button type="reset" class="btn btn-warning">Reset</button>

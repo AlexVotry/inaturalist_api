@@ -17,21 +17,21 @@
       "id": 9
     };
     var slides = [];
-    var count = 0;
     var first = {};
     var second = {};
     var species;
     var client_id = '456965';
     var url = 'https://api.inaturalist.org/v1/observations';
     var taxaGroups = ['Reptilia', 'mammalia', 'Aves', 'Actinopterygii', 'Amphibia', 'Arachnida'];
-
+    var route = 'app/v1/favorites';
     return {
       convert: convert,
       getImages: getImages,
       makeBoard: makeBoard,
       firstPick: firstPick,
       secondPick: secondPick,
-      compare: compare
+      compare: compare,
+      getFavs: getFavs
     };
     function convert(taxa) {
       switch (taxa) {
@@ -59,13 +59,12 @@
       return species;
     }
 
-    function getInfo() {
-      console.log('info species: ', species);
+    function getInfo(amount) {
       var request = {
         method: 'GET',
         url: url,
         // headers: {authorization: `Bearer ${token}`},
-        params: {photos: true, per_page: 8, identified: true, iconic_taxa: species, popular: true}
+        params: {photos: true, per_page: amount, identified: true, iconic_taxa: species, popular: true}
       }
       return $http(request)
         .then( info => {
@@ -73,8 +72,8 @@
       });
     }
 
-    function getImages(taxa) {
-      getInfo(taxa).then(response => {
+    function getImages(amount) {
+      getInfo(amount).then(response => {
         var results = response.results;
         var double = 2;
         while (double > 0) {
@@ -90,6 +89,27 @@
           double --;
         };
         shuffle(slides);
+      });
+      return $q((resolve, reject) => {
+        resolve(slides);
+      });
+    };
+    function getFavInfo(user) {
+      return $http.get(`${route}/${user}`)
+        .then((info) => {
+          return info.data;
+      });
+    }
+    function getFavs(gamer) {
+      getFavInfo(gamer).then(results => {
+      var double = 2;
+      while (double > 0) {
+        for (var i = 0; i < 8; i++) {
+            slides.push(results[i]);
+        }
+        double --;
+      };
+      shuffle(slides);
       });
       return $q((resolve, reject) => {
         resolve(slides);
@@ -138,9 +158,6 @@
           return gotIt;
         }
     };
-
-
   }
-
 
 }());

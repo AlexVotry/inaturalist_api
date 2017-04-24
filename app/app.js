@@ -6,17 +6,14 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const auth = require('./auth/authenticate');
-const routes = require('./login');
-const signup = require('./signup.route');
-const login = require('./login.route');
+const routes = require('./routes/index');
+const signup = require('./routes/signup.route');
+const login = require('./routes/login.route');
+const favorites = require('./routes/fav.route');
 const methodOverride = require('method-override');
 const session = require('cookie-session');
 const models = require('../db/model');
 require('dotenv').load();
-// const routes = require('./routes/index');
-// const users = require('./routes/users');
-// const bikes = require('./routes/bikes');
-// const parts = require('./routes/parts');
 
 const app = express();
 
@@ -26,37 +23,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
-app.use(session({
-  name: 'bikeRider',
-  keys: [process.env.SESSION_KEY]
-}));
+// app.use(session({
+//   name: 'bikeRider',
+//   keys: [process.env.SESSION_KEY]
+// }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', routes);
 app.use('/app/v1/signup', signup);
 app.use('/app/v1/login', login);
-// app.get('/', function(request, response) {
-//   response.sendFile('index.html');
-// });
-// app.use('/', routes);
-// app.use('/app/v1/signup', signup);
-app.use('/app/v1/signup', function(request, response) {
-  let credentials = request.body.credentials;
-  let username = credentials.username;
-  console.log('USERNAME: ', username);
-
-  let user = { user: { name: username, id: 2 } };
-
-  let payload = JSON.stringify(user);
-  let encodedPayload = Buffer(payload).toString('base64');
-
-  let token = ['header', encodedPayload, 'signature'].join('.');
-
-  response
-    .status(201)
-    // .render('/', {user: username})
-    .json({ token: token });
-});
+app.use('/app/v1/favorites', favorites);
 
 // app.use(function(request, response, next) {
 //

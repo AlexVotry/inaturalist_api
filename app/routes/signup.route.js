@@ -1,7 +1,7 @@
 const express = require('express');
-const auth = require('./auth/authenticate');
+const auth = require('../auth/authenticate');
 const signup = express.Router();
-const model = require('../db/model');
+const model = require('../../db/model');
 
 signup.post('/', (request, response) => {
   let credentials = request.body.credentials;
@@ -20,7 +20,6 @@ signup.post('/', (request, response) => {
 });
 
 signup.get('/', (request, response) => {
-  console.log('get signup');
   // auth.authenticateJWT(request);
   model.allGamers().select().then(list => {
     response.json(list);

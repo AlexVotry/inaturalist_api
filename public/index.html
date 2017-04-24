@@ -9,23 +9,26 @@
       <link rel="stylesheet" href="style.css">
     </head>
     <body>
-      <nav id="navBar" class="navbar navbar">
-        <div class="container-fluid">
+      <nav id="navBar" class="navbar navbar" data-spy="affix" data-offset-top="5">
+
           <div class="navbar-header">
             <a class="navbar-brand" href="/">iNatualist for fun </a>
           </div>
           <ul class="nav navbar-nav">
             <li><a href="/game">Game</a></li>
+            <li><a href="/list">List</a></li>
+            <li><a href='/favorites'>Favorites</a></li>
           </ul>
 
            <ul class="nav navbar-nav navbar-right">
             <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
-        </div>
       </nav>
 
-      <div ui-view></div>
+        <div class="container-fluid">
+          <div ui-view></div>
+        </div>
 
 
       <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -34,25 +37,33 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"> </script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
       <script src="app.js"></script>
-      <script src="./game/game.module.js"></script>
-      <script src="./game/game.service.js"></script>
-      <script src="./game/game.route.js"></script>
-      <script src="./game/game.controller.js"></script>
-      <script src="./login/login.module.js"></script>
-      <script src="./login/login.service.js"></script>
-      <script src="./login/login.route.js"></script>
-      <script src="./login/login.controller.js"></script>
-      <script src="./signup/signup.module.js"></script>
-      <script src="./signup/signup.service.js"></script>
-      <script src="./signup/signup.route.js"></script>
-      <script src="./signup/signup.controller.js"></script>
-      <script src="./welcome/welcome.module.js"></script>
-      <script src="./welcome/welcome.service.js"></script>
-      <script src="./welcome/welcome.route.js"></script>
-      <script src="./welcome/welcome.controller.js"></script>
       <script src="./auth/auth.module.js"></script>
       <script src="./auth/auth-interceptor.service.js"></script>
       <script src="./auth/auth-token.service.js"></script>
       <script src="./auth/session.service.js"></script>
+      <script src="./signup/signup.module.js"></script>
+      <script src="./signup/signup.service.js"></script>
+      <script src="./signup/signup.route.js"></script>
+      <script src="./signup/signup.controller.js"></script>
+      <script src="./login/login.module.js"></script>
+      <script src="./login/login.service.js"></script>
+      <script src="./login/login.route.js"></script>
+      <script src="./login/login.controller.js"></script>
+      <script src="./welcome/welcome.module.js"></script>
+      <script src="./welcome/welcome.service.js"></script>
+      <script src="./welcome/welcome.route.js"></script>
+      <script src="./welcome/welcome.controller.js"></script>
+      <script src="./game/game.module.js"></script>
+      <script src="./game/game.service.js"></script>
+      <script src="./game/game.route.js"></script>
+      <script src="./game/game.controller.js"></script>
+      <script src="./list/list.module.js"></script>
+      <script src="./list/list.service.js"></script>
+      <script src="./list/list.route.js"></script>
+      <script src="./list/list.controller.js"></script>
+      <script src="./favorites/favorites.module.js"></script>
+      <script src="./favorites/favorites.service.js"></script>
+      <script src="./favorites/favorites.route.js"></script>
+      <script src="./favorites/favorites.controller.js"></script>
     </body>
   </html>

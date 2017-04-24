@@ -5,7 +5,7 @@
   .module('game')
   .controller('GameController', GameController);
 
-  function GameController($rootScope, GameService, $timeout) {
+  function GameController($rootScope, GameService, $timeout, FavService, SessionService) {
     var vm = this;
     vm.gotRight = 0;
     vm.guesses = 0;
@@ -19,14 +19,23 @@
     var didIt = 'http://www.onefortraining.org/sites/default/files/YouDidIt.png';
     var indx;
     var loc;
-    vm.animalGroups = ['Reptiles', 'Mammals', 'Birds', 'Fish', 'Amphibians', 'Spiders'];
+    var total_images = 8;
+    var user = SessionService.currentUser();
+    vm.animalGroups = ['Reptiles', 'Mammals', 'Birds', 'Fish', 'Amphibians', 'Spiders', 'Favorites'];
 
     vm.chooseSpecies = function(species) {
-      vm.taxa = species;
-      GameService.convert(species);
-      GameService.getImages().then(info => {
-        vm.animalPics = info;
-      })
+      if (species == 'Favorites') {
+        GameService.getFavs(user.username).then(info => {
+          vm.animalPics = info;
+          console.log('favs: ', info);
+        });
+      } else {
+        vm.taxa = species;
+        GameService.convert(species);
+        GameService.getImages(total_images).then(info => {
+          vm.animalPics = info;
+        });
+      };
     };
 
     vm.images = GameService.makeBoard();

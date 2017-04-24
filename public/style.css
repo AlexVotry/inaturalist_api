@@ -1,4 +1,4 @@
-#container {
+.container {
   background-color: #828081; /* steel */
   height: 100%;
   margin-left: 1%;
@@ -7,6 +7,9 @@
 }
 #navBar {
   background-color: #3cc47c;
+  margin-left: 1%;
+  width: 98%;
+  z-index: 20;
 }
 a {
   color: #fff;
@@ -14,9 +17,13 @@ a {
 body {
   background-color: #1e392a;
 }
-/*aside {
-  margin: 2%;
-}*/
+.affix {
+  top: 0;
+  width: 98%;
+}
+.affix + .container-fluid {
+    padding-top: 70px;
+}
 .well {
   margin: 2%;
   box-shadow: 2px 2px 8px #3cc47c;
@@ -54,6 +61,11 @@ body {
 .reset {
   background-color: #bd1e05;
 }
+.listReset {
+  background-color: #bd1e05;
+  margin-left: 2%;
+  position: fixed;
+}
 .dropIt {
   margin-top: 2%;
   list-style: none;
@@ -66,4 +78,14 @@ body {
   background-color: #3cc47c;
   color: #000;
   font-size: 2em;
+}
+.title {
+  text-align: center;
+  color: #fff;
+}
+.blurbs {
+  height: 100px;
+}
+#buffer {
+  background-color: red;
 }
