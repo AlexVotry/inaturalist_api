@@ -20,10 +20,13 @@
             <li><a href='/favorites'>Favorites</a></li>
           </ul>
 
+          <div ng-controller="LoginController as login">
            <ul class="nav navbar-nav navbar-right">
-            <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
+            <li ><a href="/signup" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li ><a href="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li ><a href="/" ng-click="login.logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+          </div>
       </nav>
 
         <div class="container-fluid">

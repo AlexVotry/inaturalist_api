@@ -8,17 +8,22 @@
   function FavController($rootScope, SessionService, FavService) {
     var vm = this;
     vm.test = 'this is here';
+    vm.currentUser = SessionService.currentUser();
 
-    var user = SessionService.currentUser();
-    if (user) {
-      vm.currentUser = user.username;
-    }
     vm.getAnimals = function (user) {
       FavService.getAnimals(user)
       .then((info) => {
         vm.animalPics = info;
       });
     };
+
+    $rootScope.$on('RegistrationSuccess', function() {
+      vm.currentUser = SessionService.currentUser();
+    });
+
+    $rootScope.$on('logout', function() {
+      vm.currentUser = '';
+    });
 
     vm.remove = function(animal) {
       FavService.remove(animal);

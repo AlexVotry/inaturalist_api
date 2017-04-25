@@ -41,19 +41,12 @@ function register(credentials) {
     if (!credentials.username) reject('username cannot be empty');
     if (!credentials.password) reject('password missing');
 
-    // return model.findGamer({ username: credentials.username })
-    //   .then(function(users) {
-    //     if (users.length > 0) {
-    //       console.log('finduser: ', users);
-    //     } else {
-          return model.createGamer(credentials)
-            .then(function(cred) {
-              console.log('createUser: ', credentials);
-              resolve(jwt.sign(cred, _SECRET ));
-            }).throw ('duplicate user');
-            // reject('duplicate user');
-        // }
-      // });
+      return model.createGamer(credentials)
+        .then(function() {
+          resolve(jwt.sign(credentials, _SECRET ));
+        }, function() {
+          reject('duplicate user');
+      });
   });
 }
 
@@ -65,7 +58,6 @@ function verify(credentials) {
 
     return model.findGamer(credentials)
       .then(function(user) {
-        console.log('verify users: ', user);
         if (user.length == 0) reject('username does not exist');
         if (user.password == credentials.password ) {
           resolve(jwt.sign(user, _SECRET ));

@@ -8,7 +8,6 @@ signup.post('/', (request, response) => {
 
   auth.register(credentials)
     .then(function(token) {
-      console.log('token: ', token);
       response
         .status(201)
         .json({ token: token });
