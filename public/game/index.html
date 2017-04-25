@@ -20,7 +20,7 @@
 <div class="col-sm-9 container">
   <!-- species dropdown -->
     <div class="col-sm-1 dropdown dropIt" >
-      <button type="button" class="btn btn-success btn-lg dropdown-toggle speciesButton" data-toggle="dropdown">Choose a species</button>
+      <button type="button" class="btn btn-success dropdown-toggle speciesButton" data-toggle="dropdown">Choose a species</button>
       <h2 class="dropIt">Species: {{ game.taxa }}</h2>
       <ul class="dropdown-menu dropdownBox" >
         <li ng-repeat="species in game.animalGroups">
@@ -29,7 +29,7 @@
       </ul>
     </div>
 <!-- gameboard -->
-  <div class='row col-sm-10 board' >
+  <div class='row col-sm-9 col-lg-10 board' >
     <div class='col-sm-3 squares' ng-repeat="pic in game.images track by $index">
       <img class="pic" ng-src='{{ pic.picture }}' alt='image' ng-click="game.choose(pic, $index)"> </img>
     </div>

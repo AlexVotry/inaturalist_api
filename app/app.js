@@ -29,25 +29,15 @@ app.use('/', routes);
 app.use('/app/v1/signup', signup);
 app.use('/app/v1/login', login);
 
-// app.use(function(request, response, next) {
-//
-//   if (request.path == '/' || request.path == '/api/v1/signup' || request.path == '/api/v1/login') next();
-//
-//   try {
-//     auth.authenticateJWT(request);
-//     next();
-//   } catch(error) {
-//     response.sendStatus(403);
-//   }
-// });
 app.use('/app/v1/favorites', favorites);
 
 module.exports = app;
 
-// const site = 'http://www.inaturalist.org';
+// const site = 'https://www.inaturalist.org/oauth/authorize';
 // const app_id = process.env.app_id;
 // const app_secret = process.env.app_secret;
 // const redirect_uri = process.env.HOST;
+
 //
 // const payload = {
 //   client_id: app_id,
@@ -56,17 +46,7 @@ module.exports = app;
 //   redirect_uri: redirect_uri,
 //   grant_type: "authorization_code"
 // };
-
-
-// app.all("/api/*", function (req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-//     return next();
-// });
-//
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
+// app.use(site, (request, response) =>{
+    // response
+    // .send(payload);
 // });
