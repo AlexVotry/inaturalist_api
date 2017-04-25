@@ -9,9 +9,9 @@
     var vm = this;
     vm.test = 'this is here';
     vm.currentUser = SessionService.currentUser();
-
+    var user = vm.currentUser;
     vm.getAnimals = function (user) {
-      FavService.getAnimals(user)
+      FavService.getAnimals(user.username)
       .then((info) => {
         vm.animalPics = info;
       });

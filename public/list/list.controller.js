@@ -21,7 +21,6 @@
       ListService.convert(species);
       ListService.getImages(total_images).then(info => {
         vm.animalPics = info;
-        console.log('list: ', vm.animalPics);
       })
     };
 

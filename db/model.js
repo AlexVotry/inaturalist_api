@@ -21,6 +21,7 @@ const knex = require('./knex');
   };
 
   function createFav(fav, gamer) {
+    console.log('createFav: ', fav, ' ', gamer);
     return knex('favorites').insert({
       username: gamer.username,
       photo_id: fav.photo_id,

@@ -35,7 +35,6 @@
     function remove(animal) {
       return $http.delete(`${route}/${animal.id}`)
       .then((deleted) => {
-        console.log('deleted: ', deleted);
       });
     }
 
