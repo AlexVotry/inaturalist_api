@@ -32,7 +32,7 @@ const knex = require('./knex');
     });
   };
 
-  removeAnimal: function removeAnimal(animalId) {
+  function removeAnimal(animalId) {
     return knex('favorites').where({ 'favorites.id': animalId}).delete();
   };
 
@@ -41,5 +41,6 @@ const knex = require('./knex');
     findGamer: findGamer,
     createGamer: createGamer,
     allFav: allFav,
-    createFav: createFav
+    createFav: createFav,
+    removeAnimal: removeAnimal
   }

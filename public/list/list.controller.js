@@ -8,7 +8,6 @@
   function ListController($rootScope, ListService, SessionService) {
     var vm = this;
     var total_images = 100;
-    var clickable = true;
     vm.animalGroups = ['Reptiles', 'Mammals', 'Birds', 'Fish', 'Amphibians', 'Spiders'];
 
     var user = SessionService.currentUser();
@@ -30,7 +29,6 @@
 
     vm.favorite = function(fav) {
       ListService.saveFavorite(fav, user);
-      clickable = !clickable;
     }
 
   }
