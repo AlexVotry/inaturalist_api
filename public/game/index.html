@@ -1,8 +1,8 @@
 <!-- sidebar -->
   <aside class="col-sm-2 well">
     <h2>Memory Game</h2>
-    <h4>You've made <strong>{{ game.guesses }}</strong> guesses </h4>
-    <h4>You got <strong class='success'>{{ game.gotRight }}</strong> right!</h4>
+    <h4 ng-show="game.guesses">You've made <strong>{{ game.guesses }}</strong> guesses </h4>
+    <h4 ng-show="game.gotRight">You got <strong class='success'>{{ game.gotRight }}</strong> right!</h4>
     </br>
     <h3>Picture location: </h3>
     <h4 class="loc">{{ game.loc }}</h4>

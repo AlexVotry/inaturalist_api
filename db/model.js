@@ -34,7 +34,7 @@ const knex = require('./knex');
   removeAnimal: function removeAnimal(animalId) {
     return knex('favorites').where({ 'favorites.id': animalId}).delete();
   };
-  
+
   module.exports = {
     allGamers: allGamers,
     findGamer: findGamer,

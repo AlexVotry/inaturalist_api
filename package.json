@@ -2,7 +2,7 @@
   "name": "inaturalist",
   "version": "1.0.0",
   "description": "api app",
-  "main": "app.js",
+  "main": "bin/www",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

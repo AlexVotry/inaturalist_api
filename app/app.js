@@ -23,16 +23,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
-// app.use(session({
-//   name: 'bikeRider',
-//   keys: [process.env.SESSION_KEY]
-// }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', routes);
 app.use('/app/v1/signup', signup);
 app.use('/app/v1/login', login);
-app.use('/app/v1/favorites', favorites);
 
 // app.use(function(request, response, next) {
 //
@@ -45,6 +40,7 @@ app.use('/app/v1/favorites', favorites);
 //     response.sendStatus(403);
 //   }
 // });
+app.use('/app/v1/favorites', favorites);
 
 module.exports = app;
 

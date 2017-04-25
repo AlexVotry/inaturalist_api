@@ -17,12 +17,10 @@
       FavService.getAnimals(user)
       .then((info) => {
         vm.animalPics = info;
-        console.log('controller: ', vm.animalPics );
       });
     };
 
     vm.remove = function(animal) {
-      console.log('id: ', animal.id);
       FavService.remove(animal);
       document.location.href = "#/favorites";
     }

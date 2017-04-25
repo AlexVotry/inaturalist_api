@@ -35,29 +35,6 @@
         </div>
       </div>
     </div>
-        <!-- <p class="col-sm-10">{{ animal.description }}</p>
-      <div class="col-sm-10 col-sm-offset-2">
-        <span class="col-sm-4 glyphicon glyphicon-calendar"> {{ animal.date  | date: 'fullDate' }}  | </span>
-        <span class="col-sm-3 glyphicon glyphicon-comment" ng-click="animal.readComments = !animal.readComments"> Read Comments  |</span>
-        <span class="col-sm-3 glyphicon glyphicon-pencil" ng-click="animal.newComments = !animal.newComments"> Add a comment</span>
-      </div>
-    </div>
-
-    <div  id="comment" class='row'>
-      <p class="col-sm-10 col-sm-offset-2 well commentWell" ng-if="animal.readComments" ng-repeat="comment in animal.comments">
-        &#9760;  {{ comment.commentAuthor }} - {{ comment.says }}
-      </p>
-    </div> -->
-
-    <!-- <div class='row'>
-      <form class="col-sm-offset-2 input-group" name="commentForm" ng-submit="addComments(animal, commentForm)" ng-if="animal.newComments">
-        <div class="form-group well commentWell" >
-          <input autofocus type="text" class="form-control" ng-model="animal.comment.commentAuthor" placeholder="Who are you?">
-          <input autofocus type="text" class="form-control" ng-model="animal.comment.says" placeholder="What do you have to contribute?">
-          <button type="submit" name="commentButton" ng-click="animal.newComments = false">Add it!</button>
-        </div>
-      </form>
-    </div> -->
 
 </div>
 <button type="button" class=" col-sm-1 btn btn-success btn-lg listReset" ng-click="list.reset()">

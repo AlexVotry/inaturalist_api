@@ -14,16 +14,3 @@ login.post('/', (request, response) => {
 });
 
 module.exports = login;
-// // login.post('/', function(request, response) {
-// //   let credentials = request.body.credentials;
-//
-//   // auth.verify(credentials).then(function(token) {
-//   //   response
-//   //     .status(201)
-//   //     .json({ token: token });
-//   // });
-// // });
-//
-// module.exports = {
-//   signup
-// };

@@ -6,7 +6,7 @@
   .factory('FavService', FavService);
 
   function FavService($http, $q) {
-    let url = '/app/v1/favorites';
+    let route = '/app/v1/favorites';
     let slides =[];
 
     return {
@@ -15,7 +15,7 @@
     }
 
     function getInfo(user) {
-      return $http.get(`${url}/${user}`)
+      return $http.get(`${route}/${user}`)
         .then((info) => {
           return info.data;
       });
@@ -33,12 +33,11 @@
     }
 
     function remove(animal) {
-      return $http.delete(`${url}/${animal.id}`)
+      return $http.delete(`${route}/${animal.id}`)
       .then((deleted) => {
         console.log('deleted: ', deleted);
       });
     }
-
 
   }
 }());
