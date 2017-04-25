@@ -15,15 +15,14 @@
       FavService.getAnimals(user.username)
       .then((info) => {
         vm.animalPics = info;
+        console.log('info: ', info);
       });
     };
 
     $rootScope.$on('RegistrationSuccess', function() {
       vm.currentUser = SessionService.currentUser();
     });
-
-    $rootScope.$on('logout', function() {
-      vm.currentUser = '';
+    $rootScope.$on('reset', function() {
     });
 
     vm.remove = function(animal) {

@@ -22,6 +22,7 @@
     }
 
     function getAnimals(user) {
+      slides = [];
       getInfo(user).then(results => {
           for (var i = 0; i < results.length; i++) {
             slides.push(results[i]);
